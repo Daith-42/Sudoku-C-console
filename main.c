@@ -100,10 +100,12 @@ int resolve(int x, int y, int tab[9][9]) {
 int affichage(int tab[9][9]) {
     for (int i = 0; i < 9; i++) {
         printf("\n");
-        printf("+---+---+---+---+---+---+---+---+---+\n");
+        printf(" +---+---+---+---+---+---+---+---+---+\n");
+
         for (int j = 0; j < 9; j++) {
             if (j == 0) {
-                printf("| ");
+                printf("%d| ", i);
+
             }
             if (tab[i][j] == 0) {
                 printf(". | ");
@@ -112,5 +114,6 @@ int affichage(int tab[9][9]) {
             }
         }
     }
-    printf("\n+---+---+---+---+---+---+---+---+---+\n");
+
+    printf("\n --1-+-2-+-3-+-4-+-5-+-6-+-7-+-8-+-9--\n");
 }
