@@ -17,7 +17,8 @@ int main() {
         {7, 5, 1, 9, 2, 8, 6, 3, 4},
         {9, 2, 4, 5, 3, 6, 7, 8, 1}
     };
-    int x, y, ninput =  input_function();
+    int x, y, ninput;
+    x, y, ninput = input_function();
     resolve(x, y, sudoku);
     affichage(sudoku);
     return 0;
@@ -57,6 +58,7 @@ int input_function(void) {
             break;
         }
     }while (1);
+
     do {
         printf("Give me the number you want: ");
 
@@ -71,24 +73,19 @@ int input_function(void) {
             break;
         }
     }while (1);
-
     return x, y, ninput;
-
-
 }
 
 int resolve(int x, int y, int tab[9][9]) {
-    for (x = 0; x < sizeof(tab); x++) {
-        for (y = 0; y < sizeof(tab); y++) {
-            if (tab[x][y] == 0) {
+    for (int i = 0; i < sizeof(tab); i++) {
+        for (int j = 0; j < sizeof(tab); j++) {
+            if (tab[i][j] == 0) {
                 return 1;
-            } else {
-                return 0;
             }
-            if (tab[x][y] != 0) {
+            if (tab[i][j] != 0) {
+                printf("%d\n", tab[i][j]);
+                printf("End of the game !\n");
                 return 0;
-                printf("%d \n", tab[x][y]);
-                printf("End of the game");
             }
         }
     }
@@ -101,7 +98,6 @@ int affichage(int tab[9][9]) {
         for (int j = 0; j < 9; j++) {
             if (j == 0) {
                 printf("| ");
-
             }
             if (tab[i][j] == 0) {
                 printf(". | ");
