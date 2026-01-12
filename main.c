@@ -60,7 +60,7 @@ int input_function(void) {
 }
 
 int position_available(int x, int y, int tab) {
-    if (1 == 1) {
+    if (x == 0 && y == 0) {
         return 1;
     }
     return 0;
