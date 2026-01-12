@@ -39,6 +39,8 @@ int input_function(void) {
 
         if (input1!=endPtr1 && value>0 && value<10) {
             x = value;
+            free(input1);
+            free(endPtr1);
             break;
         }
     }while (1);
@@ -54,6 +56,8 @@ int input_function(void) {
 
         if (input2!=endPtr2 && value>0 && value<10) {
             y = value;
+            free(input2);
+            free(endPtr2);
             break;
         }
     }while (1);
@@ -68,6 +72,8 @@ int input_function(void) {
 
         if (input3!=endPtr3 && value>0 && value<10) {
             ninput = value;
+            free(input3);
+            free(endPtr3);
             break;
         }
     }while (1);
