@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int input_function(void);
+int input_function_x(void);
+int input_function_y(void);
+int input_function_ninput(void);
 int resolve(int x, int y, int tab[9][9]);
 int affichage(int tab[9][9]);
 
@@ -18,17 +20,16 @@ int main() {
         {9, 2, 4, 5, 3, 6, 7, 8, 1}
     };
     int x, y, ninput;
-    x, y, ninput = input_function();
+    x  = input_function_x();
+    y  = input_function_y();
+    ninput = input_function_ninput();
     resolve(x, y, sudoku);
     affichage(sudoku);
     return 0;
 }
 
-int input_function(void) {
+int input_function_x(void) {
     int x;
-    int y;
-    int ninput;
-    printf("Give me 2 number\n");
     do {
         printf("Give me x: ");
 
@@ -45,7 +46,11 @@ int input_function(void) {
         free(input1);
         free(endPtr1);
     }while (1);
+    return x;
+}
 
+int input_function_y(void) {
+    int y;
     do {
         printf("Give me y: ");
 
@@ -62,7 +67,11 @@ int input_function(void) {
         free(input2);
         free(endPtr2);
     }while (1);
+    return y;
+}
 
+int input_function_ninput(void) {
+    int ninput;
     do {
         printf("Give me the number you want: ");
 
@@ -79,7 +88,7 @@ int input_function(void) {
         free(input3);
         free(endPtr3);
     }while (1);
-    return x, y, ninput;
+    return ninput;
 }
 
 int resolve(int x, int y, int tab[9][9]) {
@@ -104,8 +113,7 @@ int affichage(int tab[9][9]) {
 
         for (int j = 0; j < 9; j++) {
             if (j == 0) {
-                printf("%d| ", i);
-
+                printf("%d| ", i+1);
             }
             if (tab[i][j] == 0) {
                 printf(". | ");
