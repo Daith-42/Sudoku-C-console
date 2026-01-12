@@ -10,8 +10,8 @@ int main() {
 }
 
 int input_function(void) {
-    int X;
-    int Y;
+    int x;
+    int y;
     printf("Give me 2 number\n");
     do {
         printf("Give me x: ");
@@ -23,7 +23,7 @@ int input_function(void) {
         int value = strtof(input,&endPtr);
 
         if (input!=endPtr && value>0 && value<10) {
-            X = value;
+            x = value;
             break;
         }
     }while (1);
@@ -38,14 +38,14 @@ int input_function(void) {
         int value = strtof(input,&endPtr);
 
         if (input!=endPtr && value>0 && value<10) {
-            Y = value;
+            y = value;
             break;
         }
     }while (1);
 }
 
 int position_available(int x, int y, int tab) {
-    if (1 == 1) {
+    if (x == 0 && y == 0) {
         return 1;
     }
     return 0;
