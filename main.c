@@ -80,7 +80,6 @@ int affichage(int tab[9][9]) {
             } else {
                 printf("%d | ", tab[i][j]);
             }
-
         }
     }
     printf("\n+---+---+---+---+---+---+---+---+---+\n");
