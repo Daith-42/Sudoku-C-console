@@ -2,11 +2,11 @@
 #include <stdlib.h>
 
 int input_function(void);
-int position_available(int x, int y, int tab);
-int affichage(int **tab);
+int resolve(int x, int y, int tab[9][9]);
+int affichage(int tab[9][9]);
 
 int main() {
-    int sudiku[9][9] = {
+    int sudoku[9][9] = {
         {2, 8, 5, 6, 1, 3, 9, 4, 7},
         {4, 9, 3, 8, 7, 2, 5, 1, 6},
         {1, 6, 7, 4, 5, 9, 8, 2, 3},
@@ -17,26 +17,27 @@ int main() {
         {7, 5, 1, 9, 2, 8, 6, 3, 4},
         {9, 2, 4, 5, 3, 6, 7, 8, 1}
     };
-    printf("hello world");
-    int x, y =  input_function();
-    affichage(tab[9][9]);
+    int x, y, ninput =  input_function();
+    resolve(x, y, sudoku);
+    affichage(sudoku);
     return 0;
 }
 
 int input_function(void) {
     int x;
     int y;
+    int ninput;
     printf("Give me 2 number\n");
     do {
         printf("Give me x: ");
 
-        char *input = malloc(30);
-        char *endPtr = malloc(30);
+        char *input1 = malloc(30);
+        char *endPtr1 = malloc(30);
 
-        fgets(input, 30, stdin);
-        int value = strtof(input,&endPtr);
+        fgets(input1, 30, stdin);
+        int value = strtof(input1,&endPtr1);
 
-        if (input!=endPtr && value>0 && value<10) {
+        if (input1!=endPtr1 && value>0 && value<10) {
             x = value;
             break;
         }
@@ -45,28 +46,55 @@ int input_function(void) {
     do {
         printf("Give me y: ");
 
-        char *input = malloc(30);
-        char *endPtr = malloc(30);
+        char *input2 = malloc(30);
+        char *endPtr2 = malloc(30);
 
-        fgets(input, 30, stdin);
-        int value = strtof(input,&endPtr);
+        fgets(input2, 30, stdin);
+        int value = strtof(input2,&endPtr2);
 
-        if (input!=endPtr && value>0 && value<10) {
+        if (input2!=endPtr2 && value>0 && value<10) {
             y = value;
             break;
         }
     }while (1);
-    return x, y;
+    do {
+        printf("Give me the number you want: ");
+
+        char *input3 = malloc(30);
+        char *endPtr3 = malloc(30);
+
+        fgets(input3, 30, stdin);
+        int value = strtof(input3,&endPtr3);
+
+        if (input3!=endPtr3 && value>0 && value<10) {
+            ninput = value;
+            break;
+        }
+    }while (1);
+
+    return x, y, ninput;
+
+
 }
 
-int position_available(int x, int y, int tab) {
-    if (x == 0 && y == 0) {
-        return 1;
+int resolve(int x, int y, int tab[9][9]) {
+    for (x = 0; x < sizeof(tab); x++) {
+        for (y = 0; y < sizeof(tab); y++) {
+            if (tab[x][y] == 0) {
+                return 1;
+            } else {
+                return 0;
+            }
+            if (tab[x][y] != 0) {
+                return 0;
+                printf("%d \n", tab[x][y]);
+                printf("End of the game");
+            }
+        }
     }
-    return 0;
 }
 
-int affichage(int **tab) {
+int affichage(int tab[9][9]) {
     for (int i = 0; i < 8; i++) {
         printf("\n");
         for (int j = 0; j < 8; j++) {
@@ -78,6 +106,4 @@ int affichage(int **tab) {
             printf("------------------\n");
         }
     }
-
-
 }
