@@ -3,7 +3,7 @@
 
 int input_function(void);
 int position_available(int x, int y, int tab);
-int affichage(int **tab);
+int affichage(int tab[9][9]);
 
 int main() {
     int sudiku[9][9] = {
@@ -11,15 +11,15 @@ int main() {
         {4, 9, 3, 8, 7, 2, 5, 1, 6},
         {1, 6, 7, 4, 5, 9, 8, 2, 3},
         {3, 1, 9, 2, 6, 5, 4, 7, 8},
-        {6, 4, 8, 7, 9, 1, 3, 5, 2},
+        {6, 4, 8, 0, 9, 1, 3, 5, 2},
         {5, 7, 2, 3, 8, 4, 1, 6, 9},
         {8, 3, 6, 1, 4, 7, 2, 9, 5},
         {7, 5, 1, 9, 2, 8, 6, 3, 4},
         {9, 2, 4, 5, 3, 6, 7, 8, 1}
     };
     printf("hello world");
-    int x, y =  input_function();
-    affichage(tab[9][9]);
+    // int x, y =  input_function();
+    affichage(sudiku);
     return 0;
 }
 
@@ -66,18 +66,22 @@ int position_available(int x, int y, int tab) {
     return 0;
 }
 
-int affichage(int **tab) {
-    for (int i = 0; i < 8; i++) {
+int affichage(int tab[9][9]) {
+    for (int i = 0; i < 9; i++) {
         printf("\n");
-        for (int j = 0; j < 8; j++) {
-            if (tab[i][j] == 0) {
-                printf("%c", '.');
-            } else {
-                printf("%d ", tab[i][j]);
+        printf("+---+---+---+---+---+---+---+---+---+\n");
+        for (int j = 0; j < 9; j++) {
+            if (j == 0) {
+                printf("| ");
+
             }
-            printf("------------------\n");
+            if (tab[i][j] == 0) {
+                printf(". | ");
+            } else {
+                printf("%d | ", tab[i][j]);
+            }
+
         }
     }
-
-
+    printf("\n+---+---+---+---+---+---+---+---+---+\n");
 }
