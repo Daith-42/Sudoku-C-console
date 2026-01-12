@@ -7,12 +7,12 @@ int affichage(int tab[9][9]);
 
 int main() {
     int sudoku[9][9] = {
-        {2, 8, 5, 6, 1, 3, 9, 4, 7},
-        {4, 9, 3, 8, 7, 2, 5, 1, 6},
+        {0, 8, 5, 6, 1, 3, 9, 4, 7},
+        {4, 9, 0, 8, 7, 2, 0, 1, 6},
         {1, 6, 7, 4, 5, 9, 8, 2, 3},
         {3, 1, 9, 2, 6, 5, 4, 7, 8},
         {6, 4, 8, 0, 9, 1, 3, 5, 2},
-        {5, 7, 2, 3, 8, 4, 1, 6, 9},
+        {5, 0, 2, 3, 8, 4, 1, 6, 9},
         {8, 3, 6, 1, 4, 7, 2, 9, 5},
         {7, 5, 1, 9, 2, 8, 6, 3, 4},
         {9, 2, 4, 5, 3, 6, 7, 8, 1}
@@ -40,10 +40,10 @@ int input_function(void) {
 
         if (input1!=endPtr1 && value>0 && value<10) {
             x = value;
-            free(input1);
-            free(endPtr1);
             break;
         }
+        free(input1);
+        free(endPtr1);
     }while (1);
 
     do {
@@ -57,10 +57,10 @@ int input_function(void) {
 
         if (input2!=endPtr2 && value>0 && value<10) {
             y = value;
-            free(input2);
-            free(endPtr2);
             break;
         }
+        free(input2);
+        free(endPtr2);
     }while (1);
 
     do {
@@ -74,10 +74,10 @@ int input_function(void) {
 
         if (input3!=endPtr3 && value>0 && value<10) {
             ninput = value;
-            free(input3);
-            free(endPtr3);
             break;
         }
+        free(input3);
+        free(endPtr3);
     }while (1);
     return x, y, ninput;
 }
