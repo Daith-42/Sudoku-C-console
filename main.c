@@ -1,11 +1,10 @@
-#include <stdio.h>;
-#include <stdlib.h>;
+#include <stdio.h>
+#include <stdlib.h>
 
 int input_function(void);
 int position_available(int x, int y, int tab);
 
 int main() {
-    printf("hello world");
     input_function();
     return 0;
 }
